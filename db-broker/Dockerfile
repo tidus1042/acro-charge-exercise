@@ -10,4 +10,4 @@ RUN npm install --production --quiet
 
 EXPOSE 5000
 
-CMD ["pm2-runtime", "./config/pm2.json"]
+CMD ["npm", "start"]
