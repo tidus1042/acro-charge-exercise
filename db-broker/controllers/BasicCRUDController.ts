@@ -14,7 +14,7 @@ export class BasicCRUDController {
         const newDoc = req.body;
         this.model.create(newDoc, (err) => {
             if (err) {
-                res.status(StatusCodes.INTERNAL_SERVER_ERROR).end(err);
+                res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err);
             } else {
                 res.status(StatusCodes.CREATED).end();
             }
@@ -24,7 +24,7 @@ export class BasicCRUDController {
     read(req, res) {
         this.model.find({}).exec((err, docs) => {
             if (err) {
-                res.status(StatusCodes.INTERNAL_SERVER_ERROR).end(err);
+                res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(err);
             } else {
                 res.json(docs);
             }
@@ -34,9 +34,9 @@ export class BasicCRUDController {
     update(req, res) {
         const id = req.params.id;
         const updatedDoc = req.body;
-        this.model.updateOne({_id: id}, updatedDoc).exec((err) => {
+        this.model.updateOne({_id: id}, updatedDoc).exec((err, resDB) => {
             if (err) {
-                res.status(StatusCodes.INTERNAL_SERVER_ERROR).end();
+                res.status(StatusCodes.INTERNAL_SERVER_ERROR).json();
             } else {
                 res.status(StatusCodes.NO_CONTENT);
             }
@@ -44,10 +44,10 @@ export class BasicCRUDController {
     }
 
     delete(req, res) {
-        const id = req.params.Id;
-        this.model.deleteOne({_id: id}, (err) => {
+        const id = req.params.id;
+        this.model.deleteOne({_id: id}, (err, resDB) => {
             if (err) {
-                res.status(StatusCodes.INTERNAL_SERVER_ERROR).end();
+                res.status(StatusCodes.INTERNAL_SERVER_ERROR).json();
             } else {
                 res.status(StatusCodes.NO_CONTENT).end();
             }
