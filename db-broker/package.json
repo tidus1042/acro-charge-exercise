@@ -1,0 +1,22 @@
+{
+  "name": "db-broker",
+  "version": "1.0.0",
+  "description": "This is a broker for the DB entities",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "author": "Asaf Sabag",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^16.3.2",
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "http-status-codes": "^2.1.4",
+    "mongoose": "^5.13.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13"
+  }
+}
