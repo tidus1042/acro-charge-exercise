@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpXhrBackend } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export class Http {
-  private http: HttpClient;
+  private http = new HttpClient(new HttpXhrBackend({build: () => new XMLHttpRequest()}));
 
   get(url): Observable<Object> {
     return this.http.get(url);

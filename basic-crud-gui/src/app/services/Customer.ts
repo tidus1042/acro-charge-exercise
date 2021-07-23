@@ -1,11 +1,11 @@
 export interface Customer {
-  _id: String;
-  firstName: String;
-  lastName: String;
-  email: String;
-  gender: String;
-  country: String;
-  city: String;
-  street: String;
-  phone: String;
+  _id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  gender: string;
+  country: string;
+  city: string;
+  street: string;
+  phone: string;
 }

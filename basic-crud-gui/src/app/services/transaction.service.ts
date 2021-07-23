@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment.prod';
 import { CRUD } from './CRUD';
-import { Transaction } from './Transaction';
+import { BackEndTransaction, Transaction } from './Transaction';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
-const TRANSACTION_URL = `${environment.baseUrl}/transaction`;
+const TRANSACTION_URL = `${environment.dbBrokerUrl}/transaction`;
 
 @Injectable({
   providedIn: 'root'
@@ -15,19 +16,19 @@ export class TransactionService {
     this.crud = new CRUD(TRANSACTION_URL);
   }
 
-  getAllCustomers() {
+  getAllTransactions(): Observable<Transaction[]> {
     return this.crud.getAllDocuments();
   }
 
-  createNewCustomer(transaction: Transaction) {
+  createNewTransaction(transaction: BackEndTransaction) {
     return this.crud.createNewDocument(transaction);
   }
 
-  updateCustomer(transaction: Transaction) {
+  updateTransaction(transaction: Transaction) {
     return this.crud.updateDocument(transaction);
   }
 
-  deleteCustomer(transactionId: string) {
+  deleteTransaction(transactionId: string) {
     return this.crud.deleteDocument(transactionId);
   }
 }

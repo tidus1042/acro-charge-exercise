@@ -1,3 +1,40 @@
-<p>
-  transaction works!
-</p>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container *ngFor="let col of fields" matColumnDef="{{col}}">
+      <th mat-header-cell *matHeaderCellDef> {{columns[fields.indexOf(col)]}} </th>
+      <td mat-cell *matCellDef="let element">
+        <mat-form-field *ngIf="element.edit">
+          <input matInput [(ngModel)]="element[col]">
+        </mat-form-field>
+        <div *ngIf="!element.edit">{{element[col]}}</div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="deleteTransaction(element)" mat-raised-button color="warn">Delete</button>
+        <button (click)="element.edit=true" mat-raised-button color="accent">Edit</button>
+        <button (click)="updateTransaction(element)" mat-raised-button color="accent">Update
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+  <div id="new-tran-div">
+    <h3>Add new Transaction</h3>
+    <mat-form-field *ngFor="let col of columns.slice(1,columns.length-1)" appearance="fill">
+      <mat-label>{{col}}</mat-label>
+      <input [(ngModel)]="newTrans[displayedColumns[columns.slice(1,columns.length-1).indexOf(col)]]" matInput>
+    </mat-form-field>
+    <button (click)="createNewTransaction(newTrans)" mat-raised-button color="success">Add
+    </button>
+  </div>
+</div>

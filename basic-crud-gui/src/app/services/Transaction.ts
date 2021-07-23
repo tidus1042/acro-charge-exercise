@@ -1,7 +1,16 @@
 export interface Transaction {
-  totalPrice: String;
-  currency: String;
-  creditCardType: String;
-  creditCardNumber: String;
-  customerId: String;
+  _id: string;
+  totalPrice: string;
+  currency: string;
+  creditCardType: string;
+  creditCardNumber: string;
+  customerId: string;
+}
+
+export interface BackEndTransaction {
+  totalPrice: string;
+  currency: string;
+  creditCardType: string;
+  creditCardNumber: string;
+  customerId: string;
 }

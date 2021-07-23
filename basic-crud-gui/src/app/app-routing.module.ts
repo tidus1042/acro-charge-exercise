@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 const appRoutes: Routes = [
-    { path: 'feed', component: FeedPageComponent },
-    { path: '', component: FeedPageComponent  },
-    { path: '**', redirectTo: '' }
+  {path: 'transaction', component: TransactionComponent},
+  {path: '', component: TransactionComponent},
+  {path: '**', redirectTo: ''}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

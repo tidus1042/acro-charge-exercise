@@ -8,18 +8,19 @@ import { LayoutModule } from '@angular/cdk/layout';
 import 'hammerjs';
 
 // all app modules
-import { MaterialModule } from './_modules/index';
+import { MaterialModule } from './_modules';
 import { routing } from './app-routing.module';
 
 // all components
 import { AppComponent } from './components/app.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
-
+import { TransactionRowComponent } from './transaction-row/transaction-row.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransactionComponent,
+    TransactionRowComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,7 @@ import { TransactionComponent } from './components/transaction/transaction.compo
     BrowserAnimationsModule,
     NoopAnimationsModule,
     LayoutModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [
    ],
