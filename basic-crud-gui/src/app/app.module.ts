@@ -13,11 +13,13 @@ import { routing } from './app-routing.module';
 
 // all components
 import { AppComponent } from './components/app.component';
+import { TransactionComponent } from './components/transaction/transaction.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    TransactionComponent,
   ],
   imports: [
     BrowserModule,
