@@ -1,5 +1,5 @@
 import { TransactionModel } from "../database/transactionSchema";
-import { BasicCRUDController } from './basicCRUDController';
+import { BasicCRUDController } from './BasicCRUDController';
 
 export const transactionBrokerController = new BasicCRUDController(TransactionModel);
 

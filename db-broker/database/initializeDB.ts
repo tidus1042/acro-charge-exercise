@@ -1,5 +1,5 @@
-import { Customer, CustomerModel } from '../database/customerSchema'
-import { Transaction, TransactionModel } from "../database/transactionSchema";
+import { CustomerModel } from '../database/customerSchema'
+import { TransactionModel } from "../database/transactionSchema";
 
 export const transactionsData = require('./data.json');
 

@@ -1,5 +1,5 @@
 import { CustomerModel } from '../database/customerSchema'
-import { BasicCRUDController } from "./basicCRUDController";
+import { BasicCRUDController } from "./BasicCRUDController";
 
 export const customerBrokerController = new BasicCRUDController(CustomerModel);
 

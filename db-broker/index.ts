@@ -5,7 +5,9 @@ import cors from 'cors';
 const app = express();
 import { customerBrokerRouter } from './routes/customerBrokerRouter';
 import { transactionBrokerRouter } from "./routes/transactionBrokerRouter";
+import { initializeData } from "./database/initializeDB";
 
+initializeData();
 
 const config = require('config');
 

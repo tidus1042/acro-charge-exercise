@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { BasicCRUDController } from "../controllers/basicCRUDController";
+import { BasicCRUDController } from "../controllers/BasicCRUDController";
 
 export class BasicCRUDRouter {
     router: Router;
